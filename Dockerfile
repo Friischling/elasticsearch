@@ -17,6 +17,13 @@ RUN \
   rm -f $ES_PKG_NAME.tar.gz && \
   mv /$ES_PKG_NAME /elasticsearch
 
+# Install ElasticSearch plugins we need
+RUN /elasticsearch/bin/plugin -install mobz/elasticsearch-head
+RUN /elasticsearch/bin/plugin -install lukas-vlcek/bigdesk
+RUN /elasticsearch/bin/plugin -install royrusso/elasticsearch-HQ
+
+
+
 # Define mountable directories.
 VOLUME ["/data"]
 
